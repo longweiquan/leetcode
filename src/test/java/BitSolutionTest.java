@@ -2,9 +2,6 @@
 import org.junit.Assert;
 import org.junit.Test;
 
-/**
- * Created by 8002273 on 3/17/2015.
- */
 public class BitSolutionTest {
 
     private BitSolution solution = new BitSolution();
@@ -19,5 +16,19 @@ public class BitSolutionTest {
     public void testReverseBits(){
         int i = 1 << 31;
         Assert.assertEquals(i, solution.reverseBits(1));
+    }
+
+    @Test
+    public void testRotate(){
+        int[] nums = new int[]{1,2,3,4,5,6,7};
+        int[] expected = new int[]{5,6,7,1,2,3,4};
+        solution.rotate(nums, 3);
+        Assert.assertArrayEquals(expected, nums);
+    }
+
+    @Test
+    public void testMaxProfit(){
+
+        Assert.assertEquals(0, solution.maxProfit(2, new int[]{}));
     }
 }

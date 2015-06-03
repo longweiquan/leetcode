@@ -1,3 +1,5 @@
+import java.util.ArrayList;
+import java.util.List;
 
 public class BitSolution {
 
@@ -41,4 +43,74 @@ public class BitSolution {
         }
         return result;
     }
+
+    /**
+     * Rotate an array of n elements to the right by k steps.
+     *
+     * For example, with n = 7 and k = 3, the array [1,2,3,4,5,6,7] is rotated to [5,6,7,1,2,3,4].
+     *
+     * @param nums array
+     * @param k position to rotate
+     */
+    public void rotate(int[] nums, int k) {
+        int[] copy = new int[nums.length];
+
+        for(int i=0;i<nums.length;i++){
+            copy[i] = nums[i];
+        }
+
+        for(int i=0; i<nums.length; i++){
+            nums[(i+k)%nums.length]=copy[i];
+        }
+    }
+
+    /**
+     * Say you have an array for which the ith element is the price of a given stock on day i.
+     *
+     * Design an algorithm to find the maximum profit. You may complete at most k transactions.
+     *
+     * @param k
+     * @param prices
+     * @return
+     */
+    public int maxProfit(int k, int[] prices) {
+
+        if(prices.length < 3 && k < 2){
+            return 0;
+        }
+
+        List<Integer> peaks = new ArrayList<Integer>();
+        List<Integer> hollows = new ArrayList<Integer>();
+
+        for(int i=0; i<prices.length; i++){
+
+            if(i==0 || i==prices.length-1){
+                peaks.add(i);
+                hollows.add(i);
+            } else {
+                if(isPeak(prices[i-1], prices[i], prices[i+1], true)){
+                    peaks.add(i);
+                }
+                if(isPeak(prices[i-1], prices[i], prices[i+1], false)){
+                    hollows.add(i);
+                }
+            }
+        }
+
+        int max = 0;
+        for(int peak: peaks){
+            for(int hollow:hollows){
+                if(peak > hollow && prices[peak] - prices[hollow] > max){
+                    max = prices[peak] - prices[hollow];
+                }
+            }
+        }
+
+        return max;
+    }
+
+    public boolean isPeak(int i1, int i2, int i3, boolean peak){
+        return (i2 >= i1 && i2 <= i3) == peak;
+    }
+
 }
