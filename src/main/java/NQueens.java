@@ -1,6 +1,3 @@
-import java.util.ArrayList;
-import java.util.List;
-
 /**
  * Classic NP Problems. THis class provide a back tracking recursive solution.
  *
