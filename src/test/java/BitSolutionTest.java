@@ -25,10 +25,4 @@ public class BitSolutionTest {
         solution.rotate(nums, 3);
         Assert.assertArrayEquals(expected, nums);
     }
-
-    @Test
-    public void testMaxProfit(){
-
-        Assert.assertEquals(0, solution.maxProfit(2, new int[]{}));
-    }
 }

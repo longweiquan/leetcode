@@ -12,7 +12,7 @@ public class MedianSortedArraysTest {
 
         double median;
 
-        median = solution.findMedianSortedArrays(new int[]{1, 3, 5, 6, 9}, new int[]{2,4,7,8});
+        median = solution.findMedianSortedArrays(   new int[]{1, 3, 5, 6, 9}, new int[]{2,4,7,8});
         Assert.assertEquals(median, 5f, 0.01f);
 
         median = solution.findMedianSortedArrays(new int[]{1,3,5,6,9}, new int[]{2,4,7,8,10});
