@@ -36,42 +36,28 @@ public class MaximumGap {
         // Each bucket's range is L
         int L = (B-A)/(N-1) + 1;
         int M = (B-A)/ L + 1;
-        Bucket[] buckets = new Bucket[M];
+        int[][] buckets = new int[M][];
 
         // put elements into buckets
         for(int v : nums){
             int index = (v - A) / L;
             if(buckets[index] == null){
-                buckets[index] = new Bucket(v);
+                buckets[index] = new int[]{v,v};
             } else {
-                buckets[index].put(v);
+                buckets[index][0] = Math.min(buckets[index][0], v);
+                buckets[index][1] = Math.max(buckets[index][1], v);
             }
         }
 
         int maxGap = 0;
-        Bucket previous = new Bucket(A);
-        for(Bucket current : buckets){
+        int[] previous = new int[]{A,A};
+        for(int[] current : buckets){
             if(current != null){
-                maxGap = Math.max(maxGap, current.min - previous.max);
+                maxGap = Math.max(maxGap, current[0] - previous[1]);
                 previous = current;
             }
         }
 
         return maxGap;
-    }
-
-    public class Bucket{
-        private int min;
-        private int max;
-
-        public Bucket(int value){
-            min = value;
-            max = value;
-        }
-
-        public void put(int value){
-            max = Math.max(max, value);
-            min = Math.min(min, value);
-        }
     }
 }
