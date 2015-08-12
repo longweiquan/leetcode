@@ -3,6 +3,8 @@ import java.util.List;
 
 /**
  * Created by longweiquan on 15/8/12.
+ *
+ * [0,1,2,4,5,7] => ["0->2","4->5","7"]
  */
 public class SummaryRanges {
 
