@@ -1,3 +1,5 @@
+import org.junit.Assert;
+
 import java.util.List;
 import java.util.stream.Collectors;
 import java.util.stream.IntStream;
@@ -36,7 +38,7 @@ public class MedianSortedArrays {
         }
 
         // divide A and B to tow part by K/2
-        int i = Math.min(A.size(), k/2);
+        int i = Math.min(A.size(), k / 2);
         int j = k-i;
 
         if(A.get(i-1) > B.get(j-1)){
@@ -44,5 +46,20 @@ public class MedianSortedArrays {
         } else {
             return findKth(A.subList(i, A.size()), B.subList(0, j), j);
         }
+    }
+
+    public static void main(String[] args){
+        MedianSortedArrays solution = new MedianSortedArrays();
+
+        double median;
+
+        median = solution.findMedianSortedArrays(   new int[]{1, 3, 5, 6, 9}, new int[]{2,4,7,8});
+        Assert.assertEquals(median, 5f, 0.01f);
+
+        median = solution.findMedianSortedArrays(new int[]{1,3,5,6,9}, new int[]{2,4,7,8,10});
+        Assert.assertEquals(median, 5.5f, 0.01f);
+
+        median = solution.findMedianSortedArrays(new int[]{1}, new int[]{2,3,4});
+        Assert.assertEquals(median, 2.5f, 0.01f);
     }
 }

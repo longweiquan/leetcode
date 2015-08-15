@@ -1,3 +1,5 @@
+import org.junit.Assert;
+
 /**
  * Dynamic programming solution
  */
@@ -32,6 +34,17 @@ public class DungeonGame {
             }
         }
         return dp[0][0];
+    }
+
+    public static void main(String[] args){
+        DungeonGame solution = new DungeonGame();
+
+        int result = solution.calculateMinimumHP(new int[][]{
+            {-2, -3,  3},
+            {-5, -10, 1},
+            {10, 30, -5}
+        });
+        Assert.assertEquals(7, result);
     }
 
 }

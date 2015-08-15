@@ -1,3 +1,5 @@
+import org.junit.Assert;
+
 import java.util.stream.IntStream;
 
 /**
@@ -24,5 +26,11 @@ public class ShortestPalindrome {
         }
 
         return new StringBuilder(reverse.substring(0, s.length() - p[p.length - 1])).append(s).toString();
+    }
+
+    public static void main(String[] args){
+        ShortestPalindrome solution = new ShortestPalindrome();
+        Assert.assertEquals("aaacecaaa", solution.shortestPalindrome("aacecaaa"));
+        Assert.assertEquals("dcbabcd", solution.shortestPalindrome("abcd"));
     }
 }

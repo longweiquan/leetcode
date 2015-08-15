@@ -1,12 +1,12 @@
+import org.junit.Assert;
+
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.List;
-import java.util.stream.IntStream;
 
 /**
  * Created by 8002273 on 6/3/2015.
  */
-public class MaximalSquareSolution {
+public class MaximalSquare {
 
     public int maximalSquare(char[][] matrix) {
 
@@ -48,5 +48,26 @@ public class MaximalSquareSolution {
         }
 
         return squares;
+    }
+
+    public static void main(String[] args){
+
+        char[][] level0 = new char[][]{};
+
+        char[][] level1 = new char[][]{
+            {1},
+        };
+
+        char[][] level2 = new char[][]{
+            {1, 0, 1, 0, 0},
+            {1, 0, 1, 1, 1},
+            {1, 1, 1, 1, 1},
+            {1, 0, 0, 1, 0}
+        };
+
+        MaximalSquare solution = new MaximalSquare();
+        Assert.assertEquals(0, solution.maximalSquare(level0));
+        Assert.assertEquals(1, solution.maximalSquare(level1));
+        Assert.assertEquals(4, solution.maximalSquare(level2));
     }
 }
