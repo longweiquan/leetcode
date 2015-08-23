@@ -9,7 +9,7 @@ import org.assertj.core.api.Assertions;
  * If you were only permitted to complete at most one transaction (ie, buy one and sell one share of the stock),
  * design an algorithm to find the maximum profit.
  */
-public class MaxProfit {
+public class MaxProfitI {
 
     public int maxProfit(int[] prices) {
 
@@ -25,7 +25,7 @@ public class MaxProfit {
     }
 
     public static void main(String[] args) {
-        MaxProfit solution = new MaxProfit();
+        MaxProfitI solution = new MaxProfitI();
         Assertions.assertThat(solution.maxProfit(new int[]{1,3,5,4,3,6,8})).isEqualTo(7);
         Assertions.assertThat(solution.maxProfit(new int[]{2,3,5,4,1,6,8})).isEqualTo(7);
     }
