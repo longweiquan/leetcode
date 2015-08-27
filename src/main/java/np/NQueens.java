@@ -1,3 +1,5 @@
+package np;
+
 import org.junit.Assert;
 
 /**
