@@ -1,4 +1,4 @@
-package string;
+package bfs;
 
 import org.assertj.core.api.Assertions;
 
@@ -9,6 +9,8 @@ import java.util.*;
  *
  * Only one letter can be changed at a time
  * Each intermediate word must exist in the dictionary
+ *
+ * Solution BFS
  */
 public class WordLadderII {
 
