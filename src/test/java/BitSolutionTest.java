@@ -1,6 +1,7 @@
 
 import org.junit.Assert;
 import org.junit.Test;
+import org.lwq.BitSolution;
 
 public class BitSolutionTest {
 
