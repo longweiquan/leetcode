@@ -6,7 +6,7 @@ import java.util.HashMap;
 import java.util.Map;
 
 /**
- * Created by longweiquan on 15/7/25.
+ * Data Structure : Trie derived from Tree, used efficiently for word searching
  */
 public class Trie {
 
@@ -17,30 +17,21 @@ public class Trie {
     }
 
     public void insert(String word) {
-
         TrieNode current = root;
-
-        for(int i=0;i<word.length();i++){
-
-            char c = word.charAt(i);
+        for(char c: word.toCharArray()){
             if(!current.children.containsKey(c)){
                 TrieNode newNode = new TrieNode();
                 newNode.value = c;
                 current.children.put(c, newNode);
             }
-
             current = current.children.get(c);
-
-            if(i+1 == word.length()){
-                current.isLeaf = true;
-            }
         }
+        current.isWord = true;
     }
 
     public boolean search(String word) {
-
         TrieNode current = getTrieNodeByPrefix(word);
-        return current != null && current.isLeaf;
+        return current != null && current.isWord;
     }
 
     public boolean startsWith(String prefix) {
@@ -49,10 +40,7 @@ public class Trie {
 
     public TrieNode getTrieNodeByPrefix(String prefix) {
         TrieNode current = root;
-
-        for(int i=0;i<prefix.length();i++){
-
-            char c = prefix.charAt(i);
+        for(char c: prefix.toCharArray()){
             current = current.children.get(c);
             if(current == null){
                 break;
@@ -64,7 +52,7 @@ public class Trie {
     class TrieNode {
         char value;
         Map<Character, TrieNode> children = new HashMap<>();
-        boolean isLeaf = false;
+        boolean isWord = false;
     }
 
     public static void main(String[] args) {
@@ -75,5 +63,4 @@ public class Trie {
         Assert.assertFalse(trie.search("some"));
         Assert.assertTrue(trie.search("something"));
     }
-
 }

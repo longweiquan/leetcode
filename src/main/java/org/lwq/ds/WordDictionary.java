@@ -4,10 +4,10 @@ import org.assertj.core.api.Assertions;
 
 import java.util.HashMap;
 import java.util.Map;
-import java.util.stream.Stream;
 
 /**
- * Created by longweiquan on 15/8/30.
+ * Data Structure : Trie
+ * Algorithm : Use DFS to deal with character '.'
  */
 public class WordDictionary {
 
