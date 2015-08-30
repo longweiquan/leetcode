@@ -1,4 +1,4 @@
-package org.lwq;
+package org.lwq.ds;
 
 import org.junit.Assert;
 
@@ -61,8 +61,7 @@ public class Trie {
         return current;
     }
 
-    public class TrieNode {
-
+    class TrieNode {
         char value;
         Map<Character, TrieNode> children = new HashMap<>();
         boolean isLeaf = false;

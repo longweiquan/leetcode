@@ -1,13 +1,14 @@
-package org.lwq;
+package org.lwq.dfs;
 
 import org.assertj.core.api.Assertions;
+import org.lwq.ds.Trie;
 
 import java.util.*;
 
 /**
  * Created by longweiquan on 15/7/19.
  *
- * Solution : Depth First Search with org.lwq.Trie to optimize the word comparison
+ * Solution : Depth First Search with Trie to optimize the word comparison
  *
  */
 public class WordSearchII {
@@ -31,7 +32,7 @@ public class WordSearchII {
         results = new HashSet<>();
 
 
-        // build org.lwq.Trie
+        // build Trie
         trie = new Trie();
         for(String word: words){
             trie.insert(word);
